@@ -1,3 +1,4 @@
+import 'package:calendar/shared/components/calendar/calendar.dart';
 import 'package:calendar/shared/components/sticky_group_list/sticky_group_list.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,15 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      body: DefaultStickyGroupList(),
+      body: Column(
+        children: [
+          DefaultCalendar(),
+          Expanded(
+            child: DefaultStickyGroupList(),
+          ),
+          //DefaultStickyGroupList(),
+        ],
+      ),
     );
   }
 }
