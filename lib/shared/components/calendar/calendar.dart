@@ -27,6 +27,7 @@ class _DefaultCalendarState extends State<DefaultCalendar> {
           focusedDay = focusDay;
         });
       },
+      onFormatChanged: (CalendarFormat calendarFormat) {},
     );
   }
 }

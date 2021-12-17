@@ -1,4 +1,4 @@
-import 'package:calendar/components/calendar.dart';
+import 'package:calendar/shared/components/sticky_group_list/sticky_group_list.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -19,11 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      body: Column(
-        children: [
-          DefaultCalendar(),
-        ],
-      ),
+      body: DefaultStickyGroupList(),
     );
   }
 }
