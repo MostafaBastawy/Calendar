@@ -1,4 +1,5 @@
 import 'package:calendar/modules/home_screen.dart';
+import 'package:calendar/shared/colors.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +14,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        backgroundColor: Colors.white,
         primarySwatch: Colors.blue,
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: separatorColor,
+        ),
       ),
       home: const HomeScreen(),
     );

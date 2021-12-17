@@ -14,7 +14,7 @@ class _DefaultCalendarState extends State<DefaultCalendar> {
   @override
   Widget build(BuildContext context) {
     return TableCalendar(
-      firstDay: DateTime.utc(2021),
+      firstDay: DateTime.now(),
       lastDay: DateTime.utc(2025),
       focusedDay: focusedDay,
       calendarFormat: CalendarFormat.week,
@@ -28,6 +28,7 @@ class _DefaultCalendarState extends State<DefaultCalendar> {
         });
       },
       onFormatChanged: (CalendarFormat calendarFormat) {},
+      calendarBuilders: CalendarBuilders(),
     );
   }
 }

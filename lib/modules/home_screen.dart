@@ -20,9 +20,13 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.add, size: 40.0),
+      ),
       body: Column(
-        children: const [
-          DefaultCalendar(),
+        children: [
+          const DefaultCalendar(),
           Expanded(
             child: DefaultStickyGroupList(),
           ),

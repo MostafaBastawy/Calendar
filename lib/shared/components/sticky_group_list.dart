@@ -1,4 +1,5 @@
 import 'package:calendar/shared/colors.dart';
+import 'package:calendar/shared/elements.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:sticky_grouped_list/sticky_grouped_list.dart';
@@ -11,29 +12,21 @@ class Element {
   Element(this.prefix, this.date, this.name);
 }
 
-List<Element> _elements = <Element>[
-  Element('Today,', DateTime.now(), 'No appointments'),
-  Element('Tomorrow,', (DateTime.now().add(const Duration(days: 1))),
-      'No appointments'),
-  Element('', (DateTime.now().add(const Duration(days: 2))), 'No appointments'),
-  Element('', (DateTime.now().add(const Duration(days: 3))), 'No appointments'),
-  Element('', (DateTime.now().add(const Duration(days: 4))), 'No appointments'),
-  Element('', (DateTime.now().add(const Duration(days: 5))), 'No appointments'),
-  Element('', (DateTime.now().add(const Duration(days: 6))), 'No appointments'),
-  Element('', (DateTime.now().add(const Duration(days: 7))), 'No appointments'),
-  Element('', (DateTime.now().add(const Duration(days: 8))), 'No appointments'),
-  Element('', (DateTime.now().add(const Duration(days: 9))), 'No appointments'),
-  Element(
-      '', (DateTime.now().add(const Duration(days: 10))), 'No appointments'),
-];
+class DefaultStickyGroupList extends StatefulWidget {
+  DefaultStickyGroupList({Key? key}) : super(key: key);
 
-class DefaultStickyGroupList extends StatelessWidget {
-  const DefaultStickyGroupList({Key? key}) : super(key: key);
+  @override
+  State<DefaultStickyGroupList> createState() => _DefaultStickyGroupListState();
+}
+
+class _DefaultStickyGroupListState extends State<DefaultStickyGroupList> {
+  var stickyController = GroupedItemScrollController();
 
   @override
   Widget build(BuildContext context) {
     return StickyGroupedListView<Element, DateTime>(
-      elements: _elements,
+      itemScrollController: stickyController,
+      elements: elements,
       order: StickyGroupedListOrder.ASC,
       groupBy: (Element element) =>
           DateTime(element.date.year, element.date.month, element.date.day),
@@ -53,9 +46,7 @@ class DefaultStickyGroupList extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 17.0,
-                color: element.prefix == 'Today,'
-                    ? Colors.deepPurple
-                    : Colors.black,
+                color: element.prefix == 'Today,' ? todayColor : Colors.black,
               ),
             ),
             const Spacer(),
