@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class DefaultCalendar extends StatefulWidget {
-  DefaultCalendar({Key? key}) : super(key: key);
+  const DefaultCalendar({Key? key}) : super(key: key);
 
   @override
   State<DefaultCalendar> createState() => _DefaultCalendarState();

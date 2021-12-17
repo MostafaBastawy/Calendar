@@ -1,5 +1,14 @@
 import 'package:calendar/shared/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
+class Element {
+  DateTime date;
+  String name;
+  IconData icon;
+
+  Element(this.date, this.name, this.icon);
+}
 
 class StickySeparatorItem extends StatelessWidget {
   const StickySeparatorItem({Key? key}) : super(key: key);
@@ -12,7 +21,13 @@ class StickySeparatorItem extends StatelessWidget {
       padding: const EdgeInsets.all(15.0),
       child: Row(
         children: [
-          const Text('Thus Dec 9'),
+          Text(
+            DateFormat.MMMEd().format(DateTime.now()),
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 17.0,
+            ),
+          ),
           const Spacer(),
           Icon(
             Icons.add,

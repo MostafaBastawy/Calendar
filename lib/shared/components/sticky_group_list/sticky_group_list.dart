@@ -4,23 +4,22 @@ import 'package:flutter/material.dart';
 import 'package:sticky_grouped_list/sticky_grouped_list.dart';
 
 List<Element> _elements = <Element>[
-  Element(DateTime(2020, 6, 24, 18), 'Got to gym', Icons.fitness_center),
-  Element(DateTime(2020, 6, 24, 9), 'Work', Icons.work),
-  Element(DateTime(2020, 6, 25, 8), 'Buy groceries', Icons.shopping_basket),
-  Element(DateTime(2020, 6, 25, 16), 'Cinema', Icons.movie),
-  Element(DateTime(2020, 6, 25, 20), 'Eat', Icons.fastfood),
-  Element(DateTime(2020, 6, 26, 12), 'Car wash', Icons.local_car_wash),
-  Element(DateTime(2020, 6, 27, 12), 'Car wash', Icons.local_car_wash),
-  Element(DateTime(2020, 6, 27, 13), 'Car wash', Icons.local_car_wash),
-  Element(DateTime(2020, 6, 27, 14), 'Car wash', Icons.local_car_wash),
-  Element(DateTime(2020, 6, 27, 15), 'Car wash', Icons.local_car_wash),
-  Element(DateTime(2020, 6, 28, 12), 'Car wash', Icons.local_car_wash),
-  Element(DateTime(2020, 6, 29, 12), 'Car wash', Icons.local_car_wash),
-  Element(DateTime(2020, 6, 29, 12), 'Car wash', Icons.local_car_wash),
-  Element(DateTime(2020, 6, 30, 12), 'Car wash', Icons.local_car_wash),
+  Element(DateTime.now(), 'Got to gym', Icons.fitness_center),
+  Element(DateTime(2020, 6, 18, 30), 'Work', Icons.work),
+  Element(DateTime(2020, 6, 19, 30), 'Work', Icons.work),
+  Element(DateTime(2020, 6, 20, 30), 'Work', Icons.work),
+  Element(DateTime(2020, 6, 21, 30), 'Work', Icons.work),
+  Element(DateTime(2020, 6, 22, 30), 'Work', Icons.work),
+  Element(DateTime(2020, 6, 23, 30), 'Work', Icons.work),
+  Element(DateTime(2020, 6, 24, 30), 'Work', Icons.work),
+  Element(DateTime(2020, 6, 25, 30), 'Work', Icons.work),
+  Element(DateTime(2020, 6, 26, 30), 'Work', Icons.work),
+  Element(DateTime(2020, 6, 27, 30), 'Work', Icons.work),
 ];
 
 class DefaultStickyGroupList extends StatelessWidget {
+  const DefaultStickyGroupList({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return StickyGroupedListView<Element, DateTime>(
@@ -34,7 +33,7 @@ class DefaultStickyGroupList extends StatelessWidget {
           element1.date.compareTo(element2.date),
       floatingHeader: true,
       groupSeparatorBuilder: (Element element) => const StickySeparatorItem(),
-      itemBuilder: (_, Element element) {
+      itemBuilder: (BuildContext context, Element element) {
         return const StickyBuilderItem();
       },
     );

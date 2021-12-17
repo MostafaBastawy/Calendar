@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       body: Column(
-        children: [
+        children: const [
           DefaultCalendar(),
           Expanded(
             child: DefaultStickyGroupList(),
