@@ -26,7 +26,10 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
-          child: const Icon(Icons.add, size: 40.0),
+          child: const Icon(
+            Icons.add,
+            size: 40.0,
+          ),
         ),
         body: Column(
           children: [

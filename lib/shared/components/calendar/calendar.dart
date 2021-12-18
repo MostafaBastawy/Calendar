@@ -9,20 +9,20 @@ class DefaultCalendar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DateTime selectedDay = DateTime.now();
-    DateTime focusedDay = DateTime.now();
+    AppCubit cubit = AppCubit.get(context);
     return BlocBuilder<AppCubit, AppStates>(
       builder: (BuildContext context, state) => TableCalendar(
         firstDay: DateTime.now(),
         lastDay: DateTime.utc(2025),
-        focusedDay: focusedDay,
+        focusedDay: cubit.focusedDay,
+        currentDay: DateTime.now(),
         calendarFormat: CalendarFormat.week,
         selectedDayPredicate: (day) {
-          return isSameDay(selectedDay, day);
+          return isSameDay(cubit.selectedDay, day);
         },
         onDaySelected: (selectDay, focusDay) {
-          selectedDay = selectDay;
-          focusedDay = focusDay;
+          cubit.selectedDay = selectDay;
+          cubit.focusedDay = focusDay;
           AppCubit.get(context).emit(AppRefreshState());
         },
         onFormatChanged: (CalendarFormat calendarFormat) {},

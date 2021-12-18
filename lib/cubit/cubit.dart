@@ -5,4 +5,6 @@ class AppCubit extends Cubit<AppStates> {
   AppCubit() : super(AppInitialState());
 
   static AppCubit get(context) => BlocProvider.of(context);
+  DateTime selectedDay = DateTime.now();
+  DateTime focusedDay = DateTime.now();
 }

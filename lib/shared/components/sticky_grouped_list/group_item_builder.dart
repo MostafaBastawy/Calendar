@@ -6,10 +6,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ItemBuilder extends StatelessWidget {
   BuilderItem? builderItem;
-  ItemBuilder({Key? key, required this.builderItem}) : super(key: key);
+  int? index;
+  ItemBuilder({Key? key, required this.builderItem, required this.index})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    AppCubit cubit = AppCubit.get(context);
+    print(index);
     return BlocBuilder<AppCubit, AppStates>(
       builder: (BuildContext context, state) => Container(
         width: double.infinity,

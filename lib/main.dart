@@ -25,6 +25,15 @@ class MyApp extends StatelessWidget {
           floatingActionButtonTheme: FloatingActionButtonThemeData(
             backgroundColor: separatorColor,
           ),
+          appBarTheme: AppBarTheme(
+            backgroundColor: separatorColor,
+            elevation: 0,
+            titleTextStyle: TextStyle(
+              color: Colors.black,
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ),
         home: const HomeScreen(),
       ),

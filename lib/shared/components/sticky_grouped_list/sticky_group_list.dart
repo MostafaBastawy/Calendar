@@ -9,15 +9,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sticky_grouped_list/sticky_grouped_list.dart';
 
 class DefaultStickyGroupList extends StatelessWidget {
-  const DefaultStickyGroupList({Key? key}) : super(key: key);
+  var groupedItemScrollController = GroupedItemScrollController();
+  DefaultStickyGroupList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var stickyController = GroupedItemScrollController();
     return BlocBuilder<AppCubit, AppStates>(
       builder: (BuildContext context, state) {
         return StickyGroupedListView<BuilderItem, DateTime>(
-          itemScrollController: stickyController,
           elements: item,
           order: StickyGroupedListOrder.ASC,
           groupBy: (BuilderItem item) =>
@@ -29,8 +28,13 @@ class DefaultStickyGroupList extends StatelessWidget {
           floatingHeader: true,
           groupSeparatorBuilder: (BuilderItem item) =>
               SeparatorBuilder(builderItem: item),
-          itemBuilder: (BuildContext context, BuilderItem item) =>
-              ItemBuilder(builderItem: item),
+          indexedItemBuilder:
+              (BuildContext context, BuilderItem item, int index) =>
+                  ItemBuilder(
+            builderItem: item,
+            index: index,
+          ),
+          itemScrollController: GroupedItemScrollController(),
         );
       },
     );
