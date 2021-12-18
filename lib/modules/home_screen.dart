@@ -25,10 +25,12 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         floatingActionButton: FloatingActionButton(
+          //backgroundColor: Color(0xAF6079F6),
           onPressed: () {},
           child: const Icon(
             Icons.add,
             size: 40.0,
+            color: Colors.white,
           ),
         ),
         body: Column(

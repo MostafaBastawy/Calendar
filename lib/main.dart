@@ -22,13 +22,13 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           backgroundColor: Colors.white,
           primarySwatch: Colors.blue,
-          floatingActionButtonTheme: FloatingActionButtonThemeData(
-            backgroundColor: separatorColor,
+          floatingActionButtonTheme: const FloatingActionButtonThemeData(
+            foregroundColor: Color(0xAF6079F6),
           ),
           appBarTheme: AppBarTheme(
             backgroundColor: separatorColor,
             elevation: 0,
-            titleTextStyle: TextStyle(
+            titleTextStyle: const TextStyle(
               color: Colors.black,
               fontSize: 20.0,
               fontWeight: FontWeight.bold,
