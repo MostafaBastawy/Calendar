@@ -9,7 +9,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sticky_grouped_list/sticky_grouped_list.dart';
 
 class DefaultStickyGroupList extends StatelessWidget {
-  var groupedItemScrollController = GroupedItemScrollController();
   DefaultStickyGroupList({Key? key}) : super(key: key);
 
   @override
@@ -34,7 +33,6 @@ class DefaultStickyGroupList extends StatelessWidget {
             builderItem: item,
             index: index,
           ),
-          itemScrollController: GroupedItemScrollController(),
         );
       },
     );

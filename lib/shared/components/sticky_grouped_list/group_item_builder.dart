@@ -12,8 +12,7 @@ class ItemBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AppCubit cubit = AppCubit.get(context);
-    print(index);
+
     return BlocBuilder<AppCubit, AppStates>(
       builder: (BuildContext context, state) => Container(
         width: double.infinity,
